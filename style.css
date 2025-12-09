@@ -1,0 +1,343 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #304b3a 0, #0b1f1a 45%, #020908 100%);
+  color: #fefefe;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Neige */
+#snow-container {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: #ffffff;
+  opacity: 0.8;
+  font-size: 0.6rem;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.page {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.header p {
+  opacity: 0.9;
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #ffdd99;
+}
+
+.header-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 24px;
+}
+
+section {
+  background: linear-gradient(135deg, rgba(12, 25, 20, 0.95), rgba(8, 16, 13, 0.96));
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-section {
+  position: sticky;
+  top: 12px;
+  align-self: flex-start;
+}
+
+.field {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.field input,
+.field select,
+.field textarea {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 8px 10px;
+  background: rgba(3, 8, 6, 0.75);
+  color: #fefefe;
+  font-size: 0.92rem;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid #ff4d4d;
+  outline-offset: 1px;
+}
+
+.checkbox-field {
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox-field input {
+  margin-right: 8px;
+  width: auto;
+}
+
+/* Boutons */
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 9px 18px;
+  background: linear-gradient(135deg, #ff4d4d, #ffb347);
+  color: #1b1b1b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.6);
+  filter: brightness(1.05);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Bouton musique */
+.btn-ghost {
+  background: transparent;
+  color: #ffdd99;
+  border: 1px solid rgba(255, 221, 153, 0.5);
+  box-shadow: none;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+.btn-ghost.active {
+  background: rgba(255, 221, 153, 0.1);
+}
+
+/* Messages */
+.form-message {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  min-height: 18px;
+}
+
+.form-message.success {
+  color: #8af5c2;
+}
+
+.form-message.error {
+  color: #ff9d9d;
+}
+
+/* Tables */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 600px;
+}
+
+.table thead {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.table th,
+.table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}
+
+.table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Tags Achète ? */
+.tag-yes {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  background: rgba(144, 238, 144, 0.15);
+  color: #9fffb0;
+}
+
+.tag-no {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f1f1f1;
+}
+
+#loading,
+#purchase-loading {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Listes de résumé */
+.summary-list {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.summary-list li {
+  margin-bottom: 2px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .page {
+    padding: 16px 10px 28px;
+  }
+
+  .header h1 {
+    font-size: 1.7rem;
+  }
+
+  .header p {
+    font-size: 0.95rem;
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form-section {
+    position: static;
+  }
+
+  section {
+    padding: 16px 14px;
+  }
+
+  section h2 {
+    font-size: 1.2rem;
+  }
+
+  .field label {
+    font-size: 0.85rem;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 0.9rem;
+  }
+
+  .table {
+    font-size: 0.8rem;
+    min-width: 520px;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+}

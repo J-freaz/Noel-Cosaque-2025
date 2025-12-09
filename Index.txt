@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Repas de Noël en Famille 🎄</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Repas de Noël en Famille 🎄</h1>
+      <p>Qui apporte quoi ? Qui achète quoi ? Tout est ici 😇</p>
+      <p class="subtitle" id="countdown"></p>
+    </header>
+
+    <main class="main">
+      <section class="form-section">
+        <h2>Ajouter sa contribution ✍️</h2>
+        <form id="contrib-form">
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required />
+          </div>
+
+          <div class="field">
+            <label for="plat">Plat / Boisson</label>
+            <input type="text" id="plat" name="plat" required />
+          </div>
+
+          <div class="field">
+            <label for="type">Type</label>
+            <select id="type" name="type" required>
+              <option value="">– Choisir –</option>
+              <option value="Entrée">Entrée</option>
+              <option value="Plat">Plat</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Boisson">Boisson</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="quantite">Quantité / Détail</label>
+            <input type="text" id="quantite" name="quantite" placeholder="Ex : pour 6 pers, 2 bouteilles…" />
+          </div>
+
+          <div class="field checkbox-field">
+            <label for="achete">
+              <input type="checkbox" id="achete" name="achete" />
+              Je m’occupe aussi de l’acheter 🛒
+            </label>
+          </div>
+
+          <div class="field">
+            <label for="remarques">Allergies / Remarques</label>
+            <textarea id="remarques" name="remarques" rows="3" placeholder="Sans gluten, sans porc, végétarien…"></textarea>
+          </div>
+
+          <button type="submit" class="btn">Ajouter</button>
+          <p id="form-message" class="form-message"></p>
+        </form>
+      </section>
+
+      <section class="list-section">
+        <h2>Liste des contributions 🎁</h2>
+        <div id="loading">Chargement de la liste…</div>
+        <table id="contrib-table" class="table hidden">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Type</th>
+              <th>Plat / Boisson</th>
+              <th>Quantité</th>
+              <th>Achète ?</th>
+              <th>Allergies / Remarques</th>
+            </tr>
+          </thead>
+          <tbody id="contrib-tbody">
+            <!-- Lignes remplies en JS -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Fait avec ❤️ pour la famille | Noël <span id="year"></span></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
